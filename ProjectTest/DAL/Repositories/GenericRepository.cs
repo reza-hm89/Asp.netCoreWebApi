@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ProjectTest.DAL.Repositories.Interfaces;
 using ProjectTest.Data;
 using System;
@@ -12,10 +13,11 @@ namespace ProjectTest.DAL.Repositories
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected ApplicationDbContext _context;
-
+     
         public GenericRepository(ApplicationDbContext context)
         {
             _context = context;
+        
         }
 
         public IQueryable<T> GetAll()
@@ -31,6 +33,7 @@ namespace ProjectTest.DAL.Repositories
 
         public virtual T Get(int id)
         {
+           
             return _context.Set<T>().Find(id);
         }
 
@@ -40,8 +43,7 @@ namespace ProjectTest.DAL.Repositories
         }
 
         public virtual T Add(T t)
-        {
-
+        {           
             _context.Set<T>().Add(t);
             _context.SaveChanges();
             return t;

@@ -1,4 +1,6 @@
-﻿using ProjectTest.DAL.Repositories;
+﻿using Microsoft.Extensions.Logging;
+
+using ProjectTest.DAL.Repositories;
 using ProjectTest.DAL.Repositories.Interfaces;
 using ProjectTest.Data;
 using System;
@@ -11,7 +13,7 @@ namespace ProjectTest.DAL
     public class UnitOfWork : IUnitOfWork
     {
         readonly ApplicationDbContext _context;
-
+      
         IBuildingRepo _building;
         IClassRoomRepo _classRoom;
         IGradeRepo _grade;
@@ -22,6 +24,7 @@ namespace ProjectTest.DAL
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
+          
         }
 
         public IBuildingRepo Building

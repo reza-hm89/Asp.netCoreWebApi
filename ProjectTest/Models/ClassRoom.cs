@@ -10,7 +10,9 @@ namespace ProjectTest.Models
         [StringLength(10)]
         public string RoomNO { get; set; }
         public int BuildingID { get; set; }
+        public int TeacherID { get; set; }
 
         public Building Building { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }
