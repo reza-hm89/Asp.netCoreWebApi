@@ -24,6 +24,7 @@ namespace ProjectTest.DAL.Repositories
         {
             try
             {
+
                 var grade = new Grade()
                 {
                     ClassRoomID = model.ClassRoomID,
@@ -76,11 +77,22 @@ namespace ProjectTest.DAL.Repositories
             try
             {
                 var grade = Get(id);
-                Delete(grade);
+                if (grade != null)
+                {
+                    Delete(grade);
 
-                Log.Information("Deleted grade with id {0}", id);
+                    Log.Information("Deleted grade with id {0}", id);
 
-                return true;
+                    return true;
+                }
+
+                else
+                {
+                    Log.Information("grade record with id {0} not found", id);
+
+                    return false;
+                }
+
             }
             catch (System.Exception ex)
             {
@@ -90,28 +102,28 @@ namespace ProjectTest.DAL.Repositories
             }
         }
 
-        public IEnumerable<object> SelectAll()
+        public IEnumerable<object> SelectAllByClassRoom(int classID)
         {
             try
             {
-                Log.Information("Load all grades");
+                Log.Information("Load all grades in the class");
 
-                return Context.Grade
-                    .Include(x => x.Student)
-                    .Include(x => x.ClassRoom)
-                    .Select(x => new
-                    {
-                        x.ID,
-                        x.Student.FirstName,
-                        x.Student.SurName,
-                        x.Student.Age,
-                        x.GPA,
-                        x.ClassRoom.Name
-                    });
+                var query = from c in Context.ClassRoom
+                            where c.ID == classID
+                            select new
+                            {
+                                ClassName = c.Name,
+                                Grades = from g in Context.Grade
+                                         join s in Context.Student on g.StudentID equals s.ID
+                                         where g.ClassRoomID == classID
+                                         select new { s.FirstName, s.SurName, s.Age, g.GPA, g.ID }
+                            };
+
+                return query;
             }
             catch (System.Exception ex)
             {
-                Log.Error(ex, "Exceptions occurred in get all grades");
+                Log.Error(ex, "Exceptions occurred in get all grades in the class");
                 throw;
             }
         }
@@ -139,6 +151,19 @@ namespace ProjectTest.DAL.Repositories
             catch (System.Exception ex)
             {
                 Log.Error(ex, "Exceptions occurred in get a grade with id {0}", id);
+                throw;
+            }
+        }
+
+        public bool ExistSurnameInClass(int classID, string surName)
+        {
+            try
+            {
+                return Context.Grade.Include(x => x.Student).Any(x => x.ClassRoomID == classID && x.Student.SurName.Equals(surName));
+            }
+            catch (System.Exception ex)
+            {
+                Log.Error(ex, "Exceptions occurred in exist sruname in classRoom with id {0} and surname {1}", classID, surName);
                 throw;
             }
         }

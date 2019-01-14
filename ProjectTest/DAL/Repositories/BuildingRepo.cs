@@ -73,11 +73,22 @@ namespace ProjectTest.DAL.Repositories
             try
             {
                 var building = Get(id);
-                Delete(building);
+                if (building != null)
+                {
+                    Delete(building);
 
-                Log.Information("Deleted building {0}", building.Name);
+                    Log.Information("Deleted building {0}", building.Name);
 
-                return true;
+                    return true;
+                }
+
+                else
+                {
+                    Log.Information("building {0} not found", building.Name);
+
+                    return false;
+                }
+
             }
             catch (System.Exception ex)
             {

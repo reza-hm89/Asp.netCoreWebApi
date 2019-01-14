@@ -53,11 +53,16 @@ namespace ProjectTest.DAL.Repositories
                     ID = id
                 };
 
-                Update(school, id);
+                var result = Update(school, id);
 
-                Log.Information("Updated school {0}", model.Name);
+                if (result!=null)
+                {
+                    Log.Information("Updated school {0}", model.Name);
 
-                return true;
+                    return true;
+                }
+
+                return false;
             }
             catch (System.Exception ex)
             {
@@ -72,11 +77,23 @@ namespace ProjectTest.DAL.Repositories
             try
             {
                 var school = Get(id);
-                Delete(school);
 
-                Log.Information("Deleted school {0}", school.Name);
+                if (school!=null)
+                {
+                    Delete(school);
 
-                return true;
+                    Log.Information("Deleted school {0}", school.Name);
+
+                    return true;
+                }
+
+                else
+                {
+                    Log.Information("school {0} not found", school.Name);
+
+                    return false;
+                }
+               
             }
             catch (System.Exception ex)
             {

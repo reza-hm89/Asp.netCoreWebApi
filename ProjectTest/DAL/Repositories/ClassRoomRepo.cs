@@ -78,11 +78,23 @@ namespace ProjectTest.DAL.Repositories
             try
             {
                 var classRoom = Get(id);
-                Delete(classRoom);
 
-                Log.Information("Deleted classRoom {0}", classRoom.Name);
+                if (classRoom != null)
+                {
+                    Delete(classRoom);
 
-                return true;
+                    Log.Information("Deleted classRoom {0}", classRoom.Name);
+
+                    return true;
+                }
+
+                else
+                {
+                    Log.Information("classRoom {0} not found", classRoom.Name);
+
+                    return false;
+                }
+
             }
             catch (System.Exception ex)
             {

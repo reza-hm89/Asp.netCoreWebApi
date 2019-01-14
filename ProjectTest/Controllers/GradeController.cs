@@ -22,9 +22,9 @@ namespace ProjectTest.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("{classID}")]
         [ActionName("gets")]
-        public IActionResult Gets()
+        public IActionResult Gets([FromRoute] int classID)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace ProjectTest.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var result = unitOfWork.Grade.SelectAll();
+                var result = unitOfWork.Grade.SelectAllByClassRoom(classID);
 
                 if (result == null)
                 {
@@ -91,9 +91,19 @@ namespace ProjectTest.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var result = unitOfWork.Grade.Insert(grade);
+                var student = unitOfWork.Student.SelectOne(grade.StudentID);
 
-                return Ok(new { result });
+                if (!unitOfWork.Grade.ExistSurnameInClass(grade.ClassRoomID, student.SurName))
+                {
+                    var result = unitOfWork.Grade.Insert(grade);
+
+                    return Ok(new { result });
+                }
+                else
+                {
+                    return Ok(new { result = false, message = "Can not add duplicate surname in the class " });
+                }
+
             }
             catch (Exception ex)
             {

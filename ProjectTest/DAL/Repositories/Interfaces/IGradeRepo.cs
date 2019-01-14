@@ -11,7 +11,9 @@ namespace ProjectTest.DAL.Repositories.Interfaces
         bool Insert(GradeInsertModel model);
         bool UpdateOne(GradeUpdateModel model, int id);
         bool DeleteOne(int id);
-        IEnumerable<object> SelectAll();
+        IEnumerable<object> SelectAllByClassRoom(int classID);
         object SelectOne(int id);
+
+        bool ExistSurnameInClass(int classID, string surName);
     }
 }

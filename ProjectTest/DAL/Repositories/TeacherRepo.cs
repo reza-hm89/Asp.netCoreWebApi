@@ -70,11 +70,23 @@ namespace ProjectTest.DAL.Repositories
             try
             {
                 var teacher = Get(id);
-                Delete(teacher);
 
-                Log.Information("Deleted teacher {0}", teacher.Name);
+                if (teacher != null)
+                {
+                    Delete(teacher);
 
-                return true;
+                    Log.Information("Deleted teacher {0}", teacher.Name);
+
+                    return true;
+                }
+
+                else
+                {
+                    Log.Information("teacher {0} not found", teacher.Name);
+
+                    return false;
+                }
+             
             }
             catch (System.Exception ex)
             {

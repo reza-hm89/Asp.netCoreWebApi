@@ -1,0 +1,17 @@
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\WebApixUnitTest.deps.json
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\WebApixUnitTest.runtimeconfig.json
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\WebApixUnitTest.runtimeconfig.dev.json
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\WebApixUnitTest.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\ProjectTest.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\ProjectTest.pdb
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.csprojAssemblyReference.cache
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.csproj.CoreCompileInputs.cache
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.AssemblyInfoInputs.cache
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.AssemblyInfo.cs
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.csproj.CopyComplete
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\bin\Debug\netcoreapp2.0\WebApixUnitTest.pdb
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.dll
+C:\Users\rezah\Desktop\Asp.netCoreWebApi\WebApixUnitTest\obj\Debug\netcoreapp2.0\WebApixUnitTest.pdb
